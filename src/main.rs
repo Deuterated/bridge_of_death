@@ -55,8 +55,8 @@ fn main() {
         Question::new("What is your quest?", ""),
     ];
 
-    println!("HALT!");
-    println!("Before you cross this bridge, you must andwer me these questions three, ere the other side ye see.");
+    println!("STOP!");
+    println!("Who would cross the Bridge of Death must answer me these questions three, ere the other side ye see.");
 
     // Ask the fixed questions
     for question in &fixed_questions {
@@ -68,6 +68,7 @@ fn main() {
         Question::new("What is 2 + 2?", "4"),
         Question::new("What is the capital of Assyria?", "assur"),
         Question::new("What is the airspeed velocity of an unladen swallow?", "32.4kph"),
+	Question::new("What is your favorite color?", ""),
     ];
 
     // Use the rand crate for random number generation
