@@ -3,6 +3,7 @@ use std::io::{self, Write};
 use std::process;
 
 // Define the Question struct
+
 #[derive(Debug, Clone)]
 struct Question {
     prompt: String,
@@ -31,19 +32,22 @@ impl Question {
         let user_answer = user_input.trim();
 
         // Check if the user's input ends with a question mark
-        if user_answer.ends_with('?') {
-            println!("I don't know that. AAAUGH!!");
-            println!("*The bridge keeper has been cast into the gorge of eternal peril and has died. Congratulations, murderer.*");
-	    process::exit(0);
-        } else {
-            // Check if the user's answer is correct
-	    if self.correct_answer.is_empty() {
-		println!("");
-            } else if user_answer == self.correct_answer {
-                println!("Alright, off you go!");
+	if !self.correct_answer.is_empty() {
+
+            if user_answer.ends_with('?') {
+                println!("I don't know that. AAAUGH!!");
+                println!("*The bridge keeper has been cast into the gorge of eternal peril and has died. Congratulations, murderer.*");
+	        process::exit(0);
             } else {
-                println!("*You have chosen poorly; an unseen force lifts you and casts you into the pit of eternal peril.*");
+                // Check if the user's answer is correct
+        	    /*if self.correct_answer.is_empty() {
+			println!("");
+           	    } else*/ if user_answer == self.correct_answer {
+           	         println!("Alright, off you go!");
+           	    } else {
+               		println!("*You have chosen poorly; an unseen force lifts you and casts you into the pit of eternal peril.*");}
             }
+	} else {println!("Alright, off you go!");
         }
     }
 }
@@ -52,10 +56,10 @@ fn main() {
     // Define two fixed questions with any answer considered correct
     let fixed_questions = [
         Question::new("What is your name?", ""),
-        Question::new("What is your quest?", ""),
+        //Question::new("What is your quest?", ""),
     ];
 
-    println!("STOP!");
+    println!("HALT!");
     println!("Who would cross the Bridge of Death must answer me these questions three, ere the other side ye see.");
 
     // Ask the fixed questions
@@ -66,9 +70,9 @@ fn main() {
     // Define a list of questions
     let questions = [
         Question::new("What is 2 + 2?", "4"),
-        Question::new("What is the capital of Assyria?", "assur"),
-        Question::new("What is the airspeed velocity of an unladen swallow?", "32.4kph"),
-	Question::new("What is your favorite color?", ""),
+        //Question::new("What is the capital of Assyria?", "assur"),
+        //Question::new("What is the airspeed velocity of an unladen swallow?", "32.4kph"),
+	Question::new("What is your favorite color?", "")
     ];
 
     // Use the rand crate for random number generation
